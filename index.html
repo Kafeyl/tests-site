@@ -16,6 +16,24 @@
             align-items: center;
         }
 
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .overlay.active {
+            opacity: 1;
+        }
+
         .sidebar-system {
             position: fixed;
             top: 0;
@@ -92,6 +110,8 @@
 </head>
 <body>
 
+    <div class="overlay" id="overlay"></div>
+
     <div class="sidebar-system" id="sidebarSystem">
 
         <div class="sidebar-panel">
@@ -111,13 +131,16 @@
     <script>
         const sidebarSystem = document.getElementById('sidebarSystem');
         const triggerBtn = document.getElementById('triggerBtn');
+        const overlay = document.getElementById('overlay');
 
         triggerBtn.addEventListener('mouseenter', () => {
             sidebarSystem.classList.add('active');
+            overlay.classList.add('active');
         });
 
         sidebarSystem.addEventListener('mouseleave', () => {
             sidebarSystem.classList.remove('active');
+            overlay.classList.remove('active');
         });
     </script>
 
