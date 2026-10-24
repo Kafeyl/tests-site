@@ -3,89 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hover Pop-out Demo</title>
+    <title>Left Side Pop-out Sidebar</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f6f8fa;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background-color: #f4f4f9;
         }
 
-       
-        .ui-container {
-            position: relative;
-            display: inline-block;
-        }
-
-        
-        .trigger-btn {
-            background-color: #24292e;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .trigger-btn:hover {
-            background-color: #0366d6; 
-        }
-
-        
-        .popout-menu {
-            position: absolute;
-            top: 100%; 
+        .sidebar-system {
+            position: fixed;
+            top: 0;
             left: 0;
-            margin-top: 10px;
-            width: 200px;
-            background-color: white;
-            border: 1px solid #e1e4e8;
-            border-radius: 6px;
-            box-shadow: 0 8px 24px rgba(149,157,165,0.2);
-            padding: 15px;
+            height: 100vh;
+            display: flex;
+            align-items: center;
             
-            
-            opacity: 0;
-            transform: translateY(-20px) scale(0.95); 
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            pointer-events: none; 
+            transform: translateX(-300px); 
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Smooth, premium slide */
+            z-index: 1000;
         }
 
-
-        .trigger-btn:hover + .popout-menu, 
-        .popout-menu:hover {
-            opacity: 1;
-            transform: translateY(0) scale(1); 
-            pointer-events: auto; 
+        .sidebar-system:hover {
+            transform: translateX(0);
         }
 
-        .popout-menu h3 {
-            margin: 0 0 8px 0;
-            font-size: 16px;
+        .sidebar-panel {
+            width: 300px;
+            height: 100vh;
+            background-color: #ffffff;
+            border-right: 1px solid #d0d7de;
+            box-shadow: 4px 0 24px rgba(140, 149, 159, 0.2);
+            box-sizing: border-box;
+            padding: 30px 24px;
         }
 
-        .popout-menu p {
-            margin: 0;
+        .sidebar-panel h2 {
+            margin-top: 0;
+            color: #24292f;
+            font-size: 20px;
+        }
+
+        .sidebar-panel p {
+            color: #57606a;
+            line-height: 1.5;
             font-size: 14px;
-            color: #586069;
+        }
+
+        .trigger-btn {
+            background-color: #24292f;
+            color: #ffffff;
+            border: 1px solid #24292f;
+            border-left: none;
+            border-radius: 0 8px 8px 0;
+            padding: 16px 12px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            writing-mode: vertical-lr; 
+            transform: rotate(180deg); 
+            text-align: center;
+            box-shadow: 4px 0 12px rgba(140, 149, 159, 0.15);
+            transition: background-color 0.2s;
+        }
+
+        .sidebar-system:hover .trigger-btn {
+            background-color: #0969da; 
+            border-color: #0969da;
+        }
+
+        .main-content {
+            text-align: center;
+            max-width: 500px;
+            padding: 20px;
         }
     </style>
 </head>
 <body>
 
-    <div class="ui-container">
-        <button class="trigger-btn">Hover Over Me</button>
-        
-        
-        <div class="popout-menu">
-            <h3>Surprise! 🎉</h3>
-            <p>I moved down, scaled up, and popped smoothly into view!</p>
+    <div class="sidebar-system">
+
+        <div class="sidebar-panel">
+            <h2>Placeholder</h2>
+            <p>Text</p>
         </div>
+
+        <button class="trigger-btn">MENU</button>
+        
+    </div>
+
+    <div class="main-content">
+        <h1>Text</h1>
+        <p>Text</p>
     </div>
 
 </body>
