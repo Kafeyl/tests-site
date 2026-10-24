@@ -27,9 +27,11 @@
             transform: translateX(-300px); 
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             z-index: 1000;
+            
+            pointer-events: none; 
         }
 
-        .sidebar-system:hover {
+        .sidebar-system.active {
             transform: translateX(0);
         }
 
@@ -41,6 +43,8 @@
             box-shadow: 4px 0 24px rgba(140, 149, 159, 0.2);
             box-sizing: border-box;
             padding: 30px 24px;
+            
+            pointer-events: auto; 
         }
 
         .sidebar-panel h2 {
@@ -60,7 +64,7 @@
             color: #ffffff;
             border: 1px solid #24292f;
             border-left: none;
-            border-radius: 8px 0 0 8px;
+            border-radius: 0 8px 8px 0; 
             padding: 16px 12px;
             font-size: 14px;
             font-weight: 600;
@@ -70,9 +74,11 @@
             text-align: center;
             box-shadow: 4px 0 12px rgba(140, 149, 159, 0.15);
             transition: background-color 0.2s;
+            
+            pointer-events: auto; 
         }
 
-        .sidebar-system:hover .trigger-btn {
+        .sidebar-system.active .trigger-btn {
             background-color: #0969da; 
             border-color: #0969da;
         }
@@ -86,14 +92,14 @@
 </head>
 <body>
 
-    <div class="sidebar-system">
+    <div class="sidebar-system" id="sidebarSystem">
 
         <div class="sidebar-panel">
             <h2>Placeholder</h2>
             <p>Text</p>
         </div>
 
-        <button class="trigger-btn">Menu</button>
+        <button class="trigger-btn" id="triggerBtn">Menu</button>
         
     </div>
 
@@ -101,6 +107,19 @@
         <h1>Text</h1>
         <p>Text</p>
     </div>
+
+    <script>
+        const sidebarSystem = document.getElementById('sidebarSystem');
+        const triggerBtn = document.getElementById('triggerBtn');
+
+        triggerBtn.addEventListener('mouseenter', () => {
+            sidebarSystem.classList.add('active');
+        });
+
+        sidebarSystem.addEventListener('mouseleave', () => {
+            sidebarSystem.classList.remove('active');
+        });
+    </script>
 
 </body>
 </html>
