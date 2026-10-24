@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Pop-out Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+
+       
+        .ui-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        
+        .trigger-btn {
+            background-color: #24292e;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .trigger-btn:hover {
+            background-color: #0366d6; 
+        }
+
+        
+        .popout-menu {
+            position: absolute;
+            top: 100%; 
+            left: 0;
+            margin-top: 10px;
+            width: 200px;
+            background-color: white;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            box-shadow: 0 8px 24px rgba(149,157,165,0.2);
+            padding: 15px;
+            
+            
+            opacity: 0;
+            transform: translateY(-20px) scale(0.95); 
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            pointer-events: none; 
+        }
+
+
+        .trigger-btn:hover + .popout-menu, 
+        .popout-menu:hover {
+            opacity: 1;
+            transform: translateY(0) scale(1); 
+            pointer-events: auto; 
+        }
+
+        .popout-menu h3 {
+            margin: 0 0 8px 0;
+            font-size: 16px;
+        }
+
+        .popout-menu p {
+            margin: 0;
+            font-size: 14px;
+            color: #586069;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ui-container">
+        <button class="trigger-btn">Hover Over Me</button>
+        
+        
+        <div class="popout-menu">
+            <h3>Surprise! 🎉</h3>
+            <p>I moved down, scaled up, and popped smoothly into view!</p>
+        </div>
+    </div>
+
+</body>
+</html>
