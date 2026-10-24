@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Left Side Pop-out Sidebar</title>
+    <title>Text</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -25,7 +25,7 @@
             align-items: center;
             
             transform: translateX(-300px); 
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Smooth, premium slide */
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             z-index: 1000;
         }
 
@@ -60,12 +60,12 @@
             color: #ffffff;
             border: 1px solid #24292f;
             border-left: none;
-            border-radius: 0 8px 8px 0;
+            border-radius: 8px 0 0 8px;
             padding: 16px 12px;
             font-size: 14px;
             font-weight: 600;
             cursor: pointer;
-            writing-mode: vertical-lr; 
+            writing-mode: vertical-rl; 
             transform: rotate(180deg); 
             text-align: center;
             box-shadow: 4px 0 12px rgba(140, 149, 159, 0.15);
@@ -93,7 +93,7 @@
             <p>Text</p>
         </div>
 
-        <button class="trigger-btn">MENU</button>
+        <button class="trigger-btn">Menu</button>
         
     </div>
 
